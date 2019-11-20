@@ -4,6 +4,8 @@ import 'package:bootcamp_flutter/widgets/movie_title.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
+import 'widgets/movie_details.dart';
+
 class MovieList extends StatefulWidget {
   @override
   _MovieListState createState() => _MovieListState();
@@ -45,7 +47,10 @@ class _MovieListState extends State<MovieList> {
                     return FlatButton(
                       child: MovieCell(movies, i),
                       padding: EdgeInsets.all(0.0),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => MovieDetailPage(movies[i])));
+                      },
                     );
                   },
                 ),
